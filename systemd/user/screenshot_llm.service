@@ -32,6 +32,7 @@ SecureBits=noroot-locked
 # Workaround to ensure paths exist
 ExecCondition=+/usr/bin/mkdir -p %h/.screenshot_llm
 ExecCondition=+/usr/bin/mkdir -p %h/.cache/pip
+ExecCondition=+/usr/bin/mkdir -p %h/Pictures/Screenshots
 ReadWritePaths=%h/.screenshot_llm
 ReadWritePaths=%h/.cache/pip
 

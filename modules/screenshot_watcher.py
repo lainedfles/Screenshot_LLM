@@ -15,8 +15,9 @@ class ScreenshotWatcher(QThread):
     def get_screenshot_directory(self):
         scr_dir_path = os.environ.get("SCREENSHOT_DIRECTORY", "")
         if scr_dir_path != "":
-            if os.path.exists(scr_dir_path):
-                return scr_dir_path
+            if not os.path.exists(scr_dir_path):
+                os.mkdir(scr_dir_path)
+            return scr_dir_path
         else:
             if os.path.exists(os.path.join(os.path.expanduser("~"), "Pictures", "Screenshots")):
                 return os.path.join(os.path.expanduser("~"), "Pictures", "Screenshots")
